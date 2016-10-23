@@ -138,8 +138,6 @@ NAN_METHOD(EclAddFragmentHeader) {
     int _ct = Nan::To<int>(info[5]).FromJust();
     int add_cs = Nan::To<int>(info[6]).FromJust();
 
-    int header_size = sizeof(fragment_header_t);
-
     be_id = get_ec_backend_id(_id);
     ct  = get_ec_checksum_type(_ct);
 
