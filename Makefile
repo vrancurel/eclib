@@ -50,7 +50,8 @@ $(ERASUREPATH)/Makefile: | $(ERASUREPATH)
 	cd $(ERASUREPATH) && ./autogen.sh && ./configure --prefix=$(LIBDIR)
 
 $(ERASURELIB): | $(ERASUREPATH)/Makefile
-	$(MAKE) -C $(ERASUREPATH) && $(MAKE) -C $(ERASUREPATH) install
+	$(MAKE) CFLAGS=-Wno-error -C $(ERASUREPATH) \
+		&& $(MAKE) -C $(ERASUREPATH) install
 
 clean:
 	$(RM) $(TARGET)
